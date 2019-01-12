@@ -268,7 +268,7 @@ ModelData* Raw2Gltf(
           RawMetRoughMatProps* props = (RawMetRoughMatProps*)material.info.get();
           // merge metallic into the blue channel and roughness into the green, of a new combinatory
           // texture
-          aoMetRoughTex = textureBuilder.combine(
+          /*aoMetRoughTex = textureBuilder.combine(
               {
                   material.textures[RAW_TEXTURE_USAGE_OCCLUSION],
                   material.textures[RAW_TEXTURE_USAGE_METALLIC],
@@ -278,7 +278,9 @@ ModelData* Raw2Gltf(
               [&](const std::vector<const TextureBuilder::pixel*> pixels) -> TextureBuilder::pixel {
                 return {{(*pixels[0])[0], (*pixels[2])[0], (*pixels[1])[0], 1}};
               },
-              false);
+              false);*/
+
+		  aoMetRoughTex = simpleTex(RAW_TEXTURE_USAGE_METALLIC);
 
           baseColorTex = simpleTex(RAW_TEXTURE_USAGE_ALBEDO);
           diffuseFactor = props->diffuseFactor;

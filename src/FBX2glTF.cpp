@@ -225,7 +225,11 @@ int main(int argc, char* argv[]) {
       ->check(CLI::Range(1, 32))
       ->group("Draco");
 
-  CLI11_PARSE(app, argc, argv);
+  try {
+    (app).parse((argc), (argv));
+  } catch (const CLI::ParseError& e) {
+    return (app).exit(e);
+  }
 
   bool do_flip_u = false;
   bool do_flip_v = true;
