@@ -1,3 +1,6 @@
+# Modification from facebookincubator/FBX2glTF:
+Added the ORCA_Conversion branch, mainly used to convert the PBR materials in the ORCA scenes (https://developer.nvidia.com/orca) correctly to glTF.
+
 # FBX2glTF
 
 This is a command line tool for converting 3D model assets on Autodesk's
